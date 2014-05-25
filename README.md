@@ -95,7 +95,7 @@ colnames(features)<-c("feature.code","feature.text")
 
 The second phrase corresponds to step 3 as described in the R script.  According to the project instruction, the tidy dataset should only include summary statistics for the measurement of mean and standard deviation for the underlying features.  Therefore, one needs to subset a list of "relevant" variables from the complete set of 561 variables.  In addition, the variables are renamed so that the names are more descriptive.
 
-First, search for key words `mean()` and `std()` in the list of variable names in the map obtained in the previous phase.  Variables that contain either key word is considered "relevant" and will be included in the "short list".  As an auxiliary step, I store the column indices for those selected variables in a vector called `column.selected` in order for identifying the relevant columns in the raw dataset in the following steps.
+* First, search for key words `mean()` and `std()` in the list of variable names in the map obtained in the previous phase.  Variables that contain either key word is considered "relevant" and will be included in the "short list".  As an auxiliary step, I store the column indices for those selected variables in a vector called `column.selected` in order for identifying the relevant columns in the raw dataset in the following steps.
 
 ```
 meanlist<-grepl("mean()",features$feature.text,fixed=T)
@@ -104,7 +104,7 @@ features.selected<-features[meanlist|stdlist,]
 column.selected<-as.numeric(features.selected$feature.code)
 ```
 
-Then, rename the selected variables to make them R-compatible (e.g. removing `()`) and more descriptive (e.g. use "Acceleration" instead of "Acc", "frequency" instead of "f", etc.).  Also, typos in the original variable names are corrected (e.g. "fBodyBody" is corrected as "fBody").
+* Then, rename the selected variables to make them R-compatible (e.g. removing `()`) and more descriptive (e.g. use "Acceleration" instead of "Acc", "frequency" instead of "f", etc.).  Also, typos in the original variable names are corrected (e.g. "fBodyBody" is corrected as "fBody").
 
 ```
 s<-gsub("mean()","mean",features.selected$feature.text,fixed=T)
@@ -119,7 +119,7 @@ s[s1=="t"]<- sub("t","time",s[s1=="t"],fixed=T)
 s[s1=="f"]<- sub("f","frequency",s[s1=="f"],fixed=T)
 ```
 
-Finally, append the new variable names as a new column to the original variable map.
+* Finally, append the new variable names as a new column to the original variable map.
 
 ```
 features.selected<-cbind(features.selected,feature.text.standardized=s)
@@ -142,15 +142,15 @@ subject.test.raw<-readLines("./UCI HAR Dataset/test/subject_test.txt")
 * Second, clean the measurements within `X_test.txt`.  Note that this process is encapsulated in a user-defined function `clean.measurement` which takes the raw data as the input and a cleaned dataframe (which only include the variables selected in the previous phase).  Let's look at the user-defined function in details.
 
 ```
-clean.measurement <- function(input,output) {
+clean.measurement <- function(input,output) {
     # code here (see below for details)
 }
-```
+```
 
 1. Use `strsplit` function to split the variables and `matrix` function to reshape the data.  The output matrix has `n` rows (where n is the number of observations (i.e. number of rows) in the raw dataset) and 561 columns.  Note at this stage, the dataset has not been subset in columns.
 
 ```
-n<-length(input)
+n<-length(input)
 output<-unlist(strsplit(input," "))
 output<-output[output!=""]
 output<-t(matrix(output,nrow=561,ncol=n))
@@ -171,8 +171,8 @@ output<-apply(output,2,as.numeric)
 4. Convert the data to data frame, label the columns, and returned the cleaned data frame to the calling environment. 
 
 ```
-output<-data.frame(output,stringsAsFactors = FALSE)
-colnames(output)=features.selected$feature.text.standardizedoutput
+output<-data.frame(output,stringsAsFactors = FALSE)
+colnames(output)=features.selected$feature.text.standardizedoutput
 ```
 
 * Third, append the subject ID and activity code column to the measurement columns.  Also, label the source of the observations as "test".
