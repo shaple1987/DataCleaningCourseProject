@@ -10,7 +10,8 @@ https://s3.amazonaws.com/coursera-uploads/user-ec31ba34b1b9f904e71c05dd/972136/a
 ### Variable Selection and Renaming
 
 Variables with the key word `mean()` or `std()` in the original variable names are included in the tidy dataset for the calculation of averages.  After the selection process is done, variables are renamed so that they are R-compatible descriptive.  For example, `tBodyAcc-std()-Z` is renamed as `timeBodyAcceleration.std.Z`.
-  For details, see **Phase 2: Variable Selection and Renaming** in the **"Detailed steps taken to transform the data"** section of [https://github.com/shaple1987/DataCleaningCourseProject/blob/master/README.md](readme.md).
+
+For details, see **Phase 2: Variable Selection and Renaming** in the **"Detailed steps taken to transform the data"** section of [readme.md](https://github.com/shaple1987/DataCleaningCourseProject/blob/master/README.md).
 
 ### Description of Variables
 
