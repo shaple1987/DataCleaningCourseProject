@@ -4,12 +4,12 @@
 
 This project involves cleaning, merging, and transforming data in the UCI HAR Dataset (available at [this link](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)) in order to produce a tidy dataset that contains summary statistics of selected measurements in the raw dataset.
 
-See codebook.md for details on the variables in the tidy dataset.  This readme.md file instead focuses on the steps involved to transform the data from its very raw form to the final output (i.e. the tidy datset).
+See [codebook.md](https://github.com/shaple1987/DataCleaningCourseProject/blob/master/codebook.md) for details on the variables in the tidy dataset.  This readme.md file instead focuses on the steps involved to transform the data from its very raw form to the final output (i.e. the tidy datset).
 
 In short, there are two steps:
 
 1. Download the raw data zip file, and save the unzipped dataset within the working directory of R.
-2. Run the scripts in run_analysis.R.
+2. Run the scripts in [run_analysis.R](https://github.com/shaple1987/DataCleaningCourseProject/blob/master/run_analysis.R).
 
 ### Raw Data
 
@@ -51,7 +51,7 @@ Within the `test` folder, there are three txt files (`X_test.txt`, `y_test.txt`,
 * The subfolder`Inertial Signals` contains even "lower level" raw signal data from which the measurements in the `X_test.txt` are derived.  For the purposes of this project, the data in this folder are not used.
 
 
-### Detailed steps taken to transform the data
+### Detailed Steps Taken to Transform the Data
 
 Logically, the steps can be grouped into five phrases: **map cleaning, variable selection and renaming, measurement data cleaning and merging (for the selected variables), summary statistics calculation, and tidy data output.** 
 
@@ -143,7 +143,7 @@ subject.test.raw<-readLines("./UCI HAR Dataset/test/subject_test.txt")
 
 ```
 clean.measurement <- function(input,output) {
-    # code here (see below for details)
+    # code here (see below for details)
 }
 ```
 
@@ -151,21 +151,21 @@ subject.test.raw<-readLines("./UCI HAR Dataset/test/subject_test.txt")
 
 ```
 n<-length(input)
-output<-unlist(strsplit(input," "))
-output<-output[output!=""]
-output<-t(matrix(output,nrow=561,ncol=n))
+output<-unlist(strsplit(input," "))
+output<-output[output!=""]
+output<-t(matrix(output,nrow=561,ncol=n))
 ```
 
 2. Column-subset the dataset to include only variables of interest (mean and  standard deviation related).
 
 ```
-output<-output[,column.selected]
+output<-output[,column.selected]
 ```
 
 3. Convert measurement data to numerics.
 
 ```
-output<-apply(output,2,as.numeric)
+output<-apply(output,2,as.numeric)
 ```
 
 4. Convert the data to data frame, label the columns, and returned the cleaned data frame to the calling environment. 
@@ -184,7 +184,7 @@ tidy.dataset.test<-cbind(source="test",subject.id=subject.test.raw,activity.labe
 * Fourth, merge the descriptive activity names onto the cleaned data frame
 
 ```
-tidy.dataset.test<-merge(tidy.dataset.test,activity.labels,by="activity.label.code",sort=F) # merge English descriptions with the numerical codes
+tidy.dataset.test<-merge(tidy.dataset.test,activity.labels,by="activity.label.code",sort=F)
 ```
 
 * Lastly, reorganize the columns of the tidy dataset and clean up the memory space.  The final output of this step is `tidy.dataset.test`.
@@ -225,7 +225,7 @@ s<-split(tidy.dataset,group.by.var,drop=TRUE)
 * Third, calculate average by each level of "group-by" variable.
 
 ```
-tidy.dataset.average<-t(sapply(s,function(x) colMeans(x[,mean.col.index]))) # calculate column means for designated columns
+tidy.dataset.average<-t(sapply(s,function(x) colMeans(x[,mean.col.index])))
 ```
 
 * Fourth, append the original subject ID and activity label for each row of calculated average and drop the "group-by" variable in the final dataset output.
