@@ -77,14 +77,14 @@ frequencyBodyGyroscope.mean.Z | Normalized mean value of frequency of body gyros
 frequencyBodyGyroscope.std.X | Normalized standard deviation of frequency of body gyroscope signal in the X direction  | [-1,1]
 frequencyBodyGyroscope.std.Y | Normalized standard deviation of frequency of body gyroscope signal in the Y direction  | [-1,1]
 frequencyBodyGyroscope.std.Z | Normalized standard deviation of frequency of body gyroscope signal in the Z direction  | [-1,1]
-frequencyBodyAccelerationMagnitude.mean | Normalized mean value of the magnitude offrequency of body acceleration signal | [-1,1]
-frequencyBodyAccelerationMagnitude.std | Normalized standard deviation of the magnitude offrequency of body acceleration signal | [-1,1]
-frequencyBodyAccelerationJerkMagnitude.mean | Normalized mean value of the magnitude offrequency of body acceleration jerk signal | [-1,1]
-frequencyBodyAccelerationJerkMagnitude.std | Normalized standard deviation of the magnitude offrequency of body acceleration jerk signal | [-1,1]
-frequencyBodyGyroscopeMagnitude.mean | Normalized standard deviation of the magnitude offrequency of body gyroscope signal | [-1,1]
-frequencyBodyGyroscopeMagnitude.std | Normalized mean value of the magnitude offrequency of gravity gyroscope signal | [-1,1]
-frequencyBodyGyroscopeJerkMagnitude.mean | Normalized mean value of the magnitude offrequency of body gyroscope jerk signal | [-1,1]
-frequencyBodyGyroscopeJerkMagnitude.std | Normalized standard deviation of the magnitude offrequency of body gyroscope jerk signal | [-1,1]
+frequencyBodyAccelerationMagnitude.mean | Normalized mean value of the magnitude of frequency of body acceleration signal | [-1,1]
+frequencyBodyAccelerationMagnitude.std | Normalized standard deviation of the magnitude of frequency of body acceleration signal | [-1,1]
+frequencyBodyAccelerationJerkMagnitude.mean | Normalized mean value of the magnitude of frequency of body acceleration jerk signal | [-1,1]
+frequencyBodyAccelerationJerkMagnitude.std | Normalized standard deviation of the magnitude of frequency of body acceleration jerk signal | [-1,1]
+frequencyBodyGyroscopeMagnitude.mean | Normalized standard deviation of the magnitude of frequency of body gyroscope signal | [-1,1]
+frequencyBodyGyroscopeMagnitude.std | Normalized mean value of the magnitude of frequency of gravity gyroscope signal | [-1,1]
+frequencyBodyGyroscopeJerkMagnitude.mean | Normalized mean value of the magnitude of frequency of body gyroscope jerk signal | [-1,1]
+frequencyBodyGyroscopeJerkMagnitude.std | Normalized standard deviation of the magnitude of frequency of body gyroscope jerk signal | [-1,1]
 
 
 ### Note
